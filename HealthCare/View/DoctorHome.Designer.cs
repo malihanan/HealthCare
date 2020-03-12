@@ -33,6 +33,7 @@
             this.usertype = new System.Windows.Forms.Label();
             this.detailsForm = new System.Windows.Forms.LinkLabel();
             this.addCase = new System.Windows.Forms.LinkLabel();
+            this.viewCases = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // username
@@ -84,11 +85,23 @@
             this.addCase.Text = "Add Case";
             this.addCase.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addCase_LinkClicked);
             // 
+            // viewCases
+            // 
+            this.viewCases.AutoSize = true;
+            this.viewCases.Location = new System.Drawing.Point(12, 137);
+            this.viewCases.Name = "viewCases";
+            this.viewCases.Size = new System.Drawing.Size(62, 13);
+            this.viewCases.TabIndex = 5;
+            this.viewCases.TabStop = true;
+            this.viewCases.Text = "View Cases";
+            this.viewCases.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.viewCases_LinkClicked);
+            // 
             // DoctorHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.viewCases);
             this.Controls.Add(this.addCase);
             this.Controls.Add(this.detailsForm);
             this.Controls.Add(this.usertype);
@@ -108,5 +121,6 @@
         private System.Windows.Forms.Label usertype;
         private System.Windows.Forms.LinkLabel detailsForm;
         private System.Windows.Forms.LinkLabel addCase;
+        private System.Windows.Forms.LinkLabel viewCases;
     }
 }

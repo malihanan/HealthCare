@@ -30,6 +30,13 @@ namespace HealthCare.View
             addCase.Show();
             this.Hide();
         }
+
+        private void viewCases_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ViewCases viewCases = new ViewCases();
+            viewCases.Show();
+            this.Hide();
+        }
     }
 }
 
