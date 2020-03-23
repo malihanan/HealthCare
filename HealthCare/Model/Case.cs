@@ -8,6 +8,7 @@ namespace HealthCare.Model
 {
     class Case
     {
+        public int Id { get; set; }
         public int DoctorId { get; set; }
         public int PatientId { get; set; }
         public DateTime OpenDate { get; set; }
@@ -16,5 +17,6 @@ namespace HealthCare.Model
         public string Title { get; set; }
         public string Description { get; set; }
         public string Disease { get; set; }
+        public string ClosingSummary { get; set; }
     }
 }

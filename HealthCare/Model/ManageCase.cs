@@ -48,5 +48,92 @@ namespace HealthCare.Model
                 return false;
             }
         }
+
+        public Case GetCase(int id)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HealthCare;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                string cmdText = "Select * from [Case] where [Case].Id = @Id;";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+                cmd.Parameters.AddWithValue("@Id", id);
+                using (con)
+                {
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        Case c = new Case
+                        {
+                            Id = Int32.Parse(rdr["Id"].ToString()),
+                            DoctorId = Int32.Parse(rdr["DoctorId"].ToString()),
+                            PatientId = Int32.Parse(rdr["PatientId"].ToString()),
+                            Description = rdr["Description"].ToString(),
+                            Disease = rdr["Disease"].ToString(),
+                            Title = rdr["Title"].ToString(),
+                            OpenDate = DateTime.Parse(rdr["OpenDate"].ToString()),
+                            ModifyDate = DateTime.Parse(rdr["ModifyDate"].ToString())
+                        };
+                        return c;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+            return null;
+        }
+
+        public bool EditCase(Case c)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HealthCare;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                string cmdText = "Update [Case] set Title = @Title, Description = @Description, Disease = @Disease, ModifyDate = @ModifyDate where [Case].Id = @Id;";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+                cmd.Parameters.AddWithValue("@Id", c.Id);
+                cmd.Parameters.AddWithValue("@Title", c.Title);
+                cmd.Parameters.AddWithValue("@Description", c.Description);
+                cmd.Parameters.AddWithValue("@Disease", c.Disease);
+                cmd.Parameters.AddWithValue("@ModifyDate", c.ModifyDate);
+                using (con)
+                {
+                    con.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    return (rows > 0) ? true : false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public bool CloseCase(int id, string closingSummary)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HealthCare;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                string cmdText = "Update [Case] set ClosingDate = @ClosingDate, ClosingSummary = @ClosingSummary where [Case].Id = @Id;";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@ClosingDate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@ClosingSummary", closingSummary);
+                using (con)
+                {
+                    con.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    return (rows > 0) ? true : false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
     }
 }

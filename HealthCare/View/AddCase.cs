@@ -13,15 +13,18 @@ namespace HealthCare.View
 {
     public partial class AddCase : Form
     {
-        public AddCase()
+        DoctorHome doctorHome;
+        public AddCase(Form frm)
         {
             InitializeComponent();
+            doctorHome = (DoctorHome)frm;
         }
 
-        private void submit_Click(object sender, EventArgs e)
+        private void add_button_Click(object sender, EventArgs e)
         {
             if (patient_id.Text == "")
             {
+                error.ForeColor = Color.Red;
                 error.Text = "Patient ID cannot be empty.";
             }
             else
@@ -48,6 +51,20 @@ namespace HealthCare.View
                     error.ForeColor = Color.Green;
                 }
             }
+        }
+
+        private void dashboard_label_Click(object sender, EventArgs e)
+        {
+            DoctorHome doctorHome = new DoctorHome();
+            doctorHome.Show();
+            this.Hide();
+        }
+
+        private void view_case_label_Click(object sender, EventArgs e)
+        {
+            ViewCases viewCases = new ViewCases(doctorHome);
+            viewCases.Show();
+            this.Hide();
         }
     }
 }

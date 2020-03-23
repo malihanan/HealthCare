@@ -1,5 +1,4 @@
 ﻿using HealthCare.Model;
-using HealthCare.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,28 +9,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HealthCare
+namespace HealthCare.View
 {
-    public partial class Register_User : Form
+    public partial class Register : Form
     {
-        public Register_User()
+        public Register()
         {
             InitializeComponent();
         }
 
-        private void register_Click(object sender, EventArgs e)
+        private void register_button_Click(object sender, EventArgs e)
         {
             if (username.Text == "")
             {
+                error.ForeColor = Color.Red;
                 error.Text = "Username cannot be empty.";
             }
             else if (password.Text == "")
             {
+                error.ForeColor = Color.Red;
                 error.Text = "Password cannot be empty.";
             }
             else if (patient.Checked == false && doctor.Checked == false &&
                         labtechnician.Checked == false && pharmacist.Checked == false)
             {
+                error.ForeColor = Color.Red;
                 error.Text = "Select a user type.";
             }
             else
@@ -53,14 +55,11 @@ namespace HealthCare
                 {
                     type = UserType.PHARMACIST;
                 }
-                User user = new User()
-                {
-                    Username = username.Text,
-                    Password = password.Text,
-                    Type = type
-                };
-                ManageUser mu = new ManageUser();
-                bool result = mu.AddUser(user);
+                UserFactory fac = new UserFactory();
+                UserStore userStore = new UserStore(fac);
+                userStore.SetUser(username.Text, password.Text, type);
+
+                bool result = userStore.AddUser();
                 if (result)
                 {
                     error.ForeColor = Color.Green;
@@ -74,11 +73,16 @@ namespace HealthCare
             }
         }
 
-        private void login_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void login_label_Click(object sender, EventArgs e)
         {
-            Login obj1 = new Login();
-            obj1.Show();
+            Index index = new Index();
+            index.Show();
             this.Hide();
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

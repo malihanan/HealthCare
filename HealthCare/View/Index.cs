@@ -1,19 +1,20 @@
-﻿using HealthCare.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthCare.Model;
 
 namespace HealthCare.View
 {
-    public partial class Login : Form
+    public partial class Index : Form
     {
-        public Login()
+        public Index()
         {
             InitializeComponent();
         }
@@ -30,20 +31,18 @@ namespace HealthCare.View
             }
             else
             {
-                User user = new User()
-                {
-                    Username = username.Text,
-                    Password = password.Text,
-                };
-                ManageUser mu = new ManageUser();
-                User u = mu.LoginUser(user);
+                UserFactory fac = new UserFactory();
+                UserStore userStore = new UserStore(fac);
+                userStore.SetUser(username.Text, password.Text, null);
+                User u = userStore.LoginUser();
+
                 if (u != null)
                 {
                     error.ForeColor = Color.Green;
                     error.Text = "Successfully Logged in.";
                     Global.Id = u.Id;
                     Global.Username = u.Username;
-                    Global.Type = u.Type;
+                    Global.Type = (UserType)u.Type;
                     if (u.Type == UserType.DOCTOR)
                     {
                         DoctorHome obj1 = new DoctorHome();
@@ -59,11 +58,16 @@ namespace HealthCare.View
             }
         }
 
-        private void register_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void register_label_Click(object sender, EventArgs e)
         {
-            Register_User obj1 = new Register_User();
-            obj1.Show();
+            Register register = new Register();
+            register.Show();
             this.Hide();
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

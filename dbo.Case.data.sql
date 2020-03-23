@@ -1,1 +1,0 @@
-﻿Select [Case].Id, [Case].ModifyDate, [Case].Title, [User].Id, [User].Username from [Case], [User] where [Case].PatientId = [User].Id and [Case].DoctorId = 1;

@@ -26,14 +26,14 @@ namespace HealthCare.View
 
         private void addCase_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            AddCase addCase = new AddCase();
+            AddCase addCase = new AddCase(this);
             addCase.Show();
             this.Hide();
         }
 
         private void viewCases_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ViewCases viewCases = new ViewCases();
+            ViewCases viewCases = new ViewCases(this);
             viewCases.Show();
             this.Hide();
         }

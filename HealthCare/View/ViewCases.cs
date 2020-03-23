@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthCare.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,18 +14,20 @@ namespace HealthCare.View
 {
     public partial class ViewCases : Form
     {
-        public ViewCases()
+        DoctorHome doctorHome;
+        public ViewCases(Form frm)
         {
             InitializeComponent();
+            doctorHome = (DoctorHome)frm;
             refreshData();
         }
 
-        private void refreshData()
+        public void refreshData()
         {
             try
             {
                 SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HealthCare;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-                string cmdText = "Select [Case].Id, [Case].ModifyDate, [Case].Title, [User].Id, [User].Username from [Case], [User] where [Case].PatientId = [User].Id and [Case].DoctorId = @Id;";
+                string cmdText = "Select [Case].Id, [Case].ModifyDate, [Case].Title, [User].Id, [User].Username from [Case], [User] where [Case].PatientId = [User].Id and [Case].DoctorId = @Id and [Case].ClosingDate IS NULL;";
                 SqlCommand cmd = new SqlCommand(cmdText, con);
                 cmd.Parameters.AddWithValue("@Id", Global.Id);
                 using (con)
@@ -41,6 +44,25 @@ namespace HealthCare.View
             {
                 Console.WriteLine(e);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                EditCase editCase = new EditCase(this, Int32.Parse(senderGrid.Rows[e.RowIndex].Cells["Id"].Value.ToString()));
+                this.Hide();
+                editCase.Show();
+            }
+        }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            doctorHome.Show();
         }
     }
 }
