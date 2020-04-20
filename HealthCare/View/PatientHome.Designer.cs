@@ -1,6 +1,6 @@
 ﻿namespace HealthCare.View
 {
-    partial class DoctorHome
+    partial class PatientHome
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,6 @@
             this.exit_button = new System.Windows.Forms.Button();
             this.view_case_label = new System.Windows.Forms.Button();
             this.dashboard_label = new System.Windows.Forms.Button();
-            this.add_case_label = new System.Windows.Forms.Button();
             this.main_panel = new System.Windows.Forms.Panel();
             this.logout = new System.Windows.Forms.Button();
             this.usertype = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@
             this.label6.Size = new System.Drawing.Size(210, 70);
             this.label6.TabIndex = 0;
             this.label6.Text = "Care+";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel2
             // 
@@ -67,6 +67,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(212, 100);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
@@ -74,14 +75,14 @@
             this.panel1.Controls.Add(this.exit_button);
             this.panel1.Controls.Add(this.view_case_label);
             this.panel1.Controls.Add(this.dashboard_label);
-            this.panel1.Controls.Add(this.add_case_label);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 628);
-            this.panel1.TabIndex = 15;
+            this.panel1.Size = new System.Drawing.Size(212, 630);
+            this.panel1.TabIndex = 17;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // exit_button
             // 
@@ -99,7 +100,7 @@
             // 
             this.view_case_label.FlatAppearance.BorderSize = 0;
             this.view_case_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_case_label.Location = new System.Drawing.Point(0, 372);
+            this.view_case_label.Location = new System.Drawing.Point(3, 272);
             this.view_case_label.Name = "view_case_label";
             this.view_case_label.Size = new System.Drawing.Size(212, 103);
             this.view_case_label.TabIndex = 4;
@@ -118,19 +119,7 @@
             this.dashboard_label.TabIndex = 3;
             this.dashboard_label.Text = "DASHBOARD";
             this.dashboard_label.UseVisualStyleBackColor = true;
-            // 
-            // add_case_label
-            // 
-            this.add_case_label.FlatAppearance.BorderSize = 0;
-            this.add_case_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_case_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.add_case_label.Location = new System.Drawing.Point(3, 272);
-            this.add_case_label.Name = "add_case_label";
-            this.add_case_label.Size = new System.Drawing.Size(212, 103);
-            this.add_case_label.TabIndex = 2;
-            this.add_case_label.Text = "ADD CASE";
-            this.add_case_label.UseVisualStyleBackColor = true;
-            this.add_case_label.Click += new System.EventHandler(this.add_case_label_Click);
+            this.dashboard_label.Click += new System.EventHandler(this.dashboard_label_Click);
             // 
             // main_panel
             // 
@@ -142,10 +131,11 @@
             this.main_panel.Controls.Add(this.username);
             this.main_panel.Controls.Add(this.label1);
             this.main_panel.Controls.Add(this.label3);
-            this.main_panel.Location = new System.Drawing.Point(237, 25);
+            this.main_panel.Location = new System.Drawing.Point(237, 28);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(694, 573);
-            this.main_panel.TabIndex = 16;
+            this.main_panel.TabIndex = 18;
+            this.main_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.main_panel_Paint);
             // 
             // logout
             // 
@@ -154,11 +144,11 @@
             this.logout.FlatAppearance.BorderSize = 0;
             this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.logout.Location = new System.Drawing.Point(537, 518);
+            this.logout.Location = new System.Drawing.Point(538, 514);
             this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(132, 36);
-            this.logout.TabIndex = 30;
+            this.logout.TabIndex = 29;
             this.logout.Text = "LOGOUT";
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.logout_Click);
@@ -172,6 +162,7 @@
             this.usertype.Size = new System.Drawing.Size(125, 23);
             this.usertype.TabIndex = 25;
             this.usertype.Text = "<user-type>";
+            this.usertype.Click += new System.EventHandler(this.usertype_Click);
             // 
             // username
             // 
@@ -182,6 +173,7 @@
             this.username.Size = new System.Drawing.Size(131, 23);
             this.username.TabIndex = 24;
             this.username.Text = "<username>";
+            this.username.Click += new System.EventHandler(this.username_Click);
             // 
             // label1
             // 
@@ -193,6 +185,7 @@
             this.label1.Size = new System.Drawing.Size(108, 23);
             this.label1.TabIndex = 16;
             this.label1.Text = "Username";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -204,40 +197,41 @@
             this.label3.Size = new System.Drawing.Size(103, 23);
             this.label3.TabIndex = 17;
             this.label3.Text = "User-type";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // user_id
             // 
             this.user_id.AutoSize = true;
-            this.user_id.Location = new System.Drawing.Point(279, 178);
+            this.user_id.Location = new System.Drawing.Point(279, 175);
             this.user_id.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.user_id.Name = "user_id";
             this.user_id.Size = new System.Drawing.Size(100, 23);
-            this.user_id.TabIndex = 32;
+            this.user_id.TabIndex = 34;
             this.user_id.Text = "<user_id>";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(136, 178);
+            this.label4.Location = new System.Drawing.Point(136, 175);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 23);
-            this.label4.TabIndex = 31;
+            this.label4.TabIndex = 33;
             this.label4.Text = "User ID";
             // 
-            // DoctorHome
+            // PatientHome
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(958, 628);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(959, 630);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.main_panel);
-            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "DoctorHome";
-            this.Text = "Home";
+            this.Name = "PatientHome";
+            this.Text = "PatientHome";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -252,15 +246,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Button view_case_label;
         private System.Windows.Forms.Button dashboard_label;
-        private System.Windows.Forms.Button add_case_label;
         private System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.Label usertype;
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Label user_id;
         private System.Windows.Forms.Label label4;

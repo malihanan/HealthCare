@@ -74,6 +74,11 @@ namespace HealthCare.Model
                             OpenDate = DateTime.Parse(rdr["OpenDate"].ToString()),
                             ModifyDate = DateTime.Parse(rdr["ModifyDate"].ToString())
                         };
+                        if(!rdr["ClosingDate"].ToString().Equals(""))
+                        {
+                            c.ClosingDate = DateTime.Parse(rdr["ClosingDate"].ToString());
+                            c.ClosingSummary = rdr["ClosingSummary"].ToString();
+                        }
                         return c;
                     }
                 }

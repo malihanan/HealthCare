@@ -23,6 +23,14 @@ namespace HealthCare.Model
             {
                 user = new Doctor();
             }
+            else if (type == UserType.PHARMACIST)
+            {
+                user = new Pharmacist();
+            }
+            else if(type == UserType.LAB_TECHNICIAN)
+            {
+                user = new LabTechnician();
+            }
             return user;
         }
     }

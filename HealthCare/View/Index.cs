@@ -43,12 +43,21 @@ namespace HealthCare.View
                     Global.Id = u.Id;
                     Global.Username = u.Username;
                     Global.Type = (UserType)u.Type;
+                    Form nextForm = null;
                     if (u.Type == UserType.DOCTOR)
                     {
-                        DoctorHome obj1 = new DoctorHome();
-                        obj1.Show();
-                        this.Hide();
+                        nextForm = new DoctorHome();
                     }
+                    else if (u.Type == UserType.PATIENT)
+                    {
+                        nextForm = new PatientHome();
+                    }
+                    else if (u.Type == UserType.PHARMACIST || u.Type == UserType.LAB_TECHNICIAN)
+                    {
+                        nextForm = new PharmacistHome();
+                    }
+                    nextForm.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -67,6 +76,7 @@ namespace HealthCare.View
 
         private void exit_button_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             this.Close();
         }
     }

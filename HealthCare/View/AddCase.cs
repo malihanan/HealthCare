@@ -31,7 +31,7 @@ namespace HealthCare.View
             {
                 Case c = new Case()
                 {
-                    DoctorId = Global.Id,
+                    DoctorId = (int)Global.Id,
                     PatientId = Int32.Parse(patient_id.Text),
                     OpenDate = DateTime.Now,
                     ModifyDate = DateTime.Now,
@@ -64,6 +64,11 @@ namespace HealthCare.View
         {
             ViewCases viewCases = new ViewCases(doctorHome);
             viewCases.Show();
+            this.Hide();
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
             this.Hide();
         }
     }

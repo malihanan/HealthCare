@@ -71,5 +71,61 @@ namespace HealthCare.Model
                 return null;
             }
         }
+
+        public User getUser(int id)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HealthCare;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                string cmdText = "Select * from [User] where [User].Id = @Id;";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+                cmd.Parameters.AddWithValue("@Id", id);
+                using (con)
+                {
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        User user = new User
+                        {
+                            Id = Int32.Parse(rdr["Id"].ToString()),
+                            Username = rdr["Username"].ToString(),
+                            Type = GetUserType(rdr["Type"].ToString())
+                        };
+                        return user;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+            return null;
+        }
+
+        UserType? GetUserType(string type)
+        {
+            if (type.Equals("PATIENT"))
+            {
+                return UserType.PATIENT;
+            }
+            else if (type.Equals("DOCTOR"))
+            {
+                return UserType.DOCTOR;
+            }
+            else if (type.Equals("PHARMACIST"))
+            {
+                return UserType.PHARMACIST;
+            }
+            else if (type.Equals("LAB_TECHNICIAN"))
+            {
+                return UserType.LAB_TECHNICIAN;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

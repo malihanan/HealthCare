@@ -1,6 +1,6 @@
 ﻿namespace HealthCare.View
 {
-    partial class DoctorHome
+    partial class PharmacistHome
     {
         /// <summary>
         /// Required designer variable.
@@ -32,17 +32,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.exit_button = new System.Windows.Forms.Button();
-            this.view_case_label = new System.Windows.Forms.Button();
+            this.give_medicine_label = new System.Windows.Forms.Button();
             this.dashboard_label = new System.Windows.Forms.Button();
-            this.add_case_label = new System.Windows.Forms.Button();
             this.main_panel = new System.Windows.Forms.Panel();
+            this.user_id = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.logout = new System.Windows.Forms.Button();
             this.usertype = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.user_id = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.main_panel.SuspendLayout();
@@ -72,16 +71,15 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(85)))));
             this.panel1.Controls.Add(this.exit_button);
-            this.panel1.Controls.Add(this.view_case_label);
+            this.panel1.Controls.Add(this.give_medicine_label);
             this.panel1.Controls.Add(this.dashboard_label);
-            this.panel1.Controls.Add(this.add_case_label);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(212, 628);
-            this.panel1.TabIndex = 15;
+            this.panel1.TabIndex = 19;
             // 
             // exit_button
             // 
@@ -95,17 +93,17 @@
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
-            // view_case_label
+            // give_medicine_label
             // 
-            this.view_case_label.FlatAppearance.BorderSize = 0;
-            this.view_case_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_case_label.Location = new System.Drawing.Point(0, 372);
-            this.view_case_label.Name = "view_case_label";
-            this.view_case_label.Size = new System.Drawing.Size(212, 103);
-            this.view_case_label.TabIndex = 4;
-            this.view_case_label.Text = "VIEW CASES";
-            this.view_case_label.UseVisualStyleBackColor = true;
-            this.view_case_label.Click += new System.EventHandler(this.view_case_label_Click);
+            this.give_medicine_label.FlatAppearance.BorderSize = 0;
+            this.give_medicine_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.give_medicine_label.Location = new System.Drawing.Point(3, 272);
+            this.give_medicine_label.Name = "give_medicine_label";
+            this.give_medicine_label.Size = new System.Drawing.Size(212, 103);
+            this.give_medicine_label.TabIndex = 4;
+            this.give_medicine_label.Text = "GIVE MEDICINE";
+            this.give_medicine_label.UseVisualStyleBackColor = true;
+            this.give_medicine_label.Click += new System.EventHandler(this.give_medicine_label_Click);
             // 
             // dashboard_label
             // 
@@ -119,19 +117,6 @@
             this.dashboard_label.Text = "DASHBOARD";
             this.dashboard_label.UseVisualStyleBackColor = true;
             // 
-            // add_case_label
-            // 
-            this.add_case_label.FlatAppearance.BorderSize = 0;
-            this.add_case_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_case_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.add_case_label.Location = new System.Drawing.Point(3, 272);
-            this.add_case_label.Name = "add_case_label";
-            this.add_case_label.Size = new System.Drawing.Size(212, 103);
-            this.add_case_label.TabIndex = 2;
-            this.add_case_label.Text = "ADD CASE";
-            this.add_case_label.UseVisualStyleBackColor = true;
-            this.add_case_label.Click += new System.EventHandler(this.add_case_label_Click);
-            // 
             // main_panel
             // 
             this.main_panel.BackColor = System.Drawing.Color.White;
@@ -142,10 +127,31 @@
             this.main_panel.Controls.Add(this.username);
             this.main_panel.Controls.Add(this.label1);
             this.main_panel.Controls.Add(this.label3);
-            this.main_panel.Location = new System.Drawing.Point(237, 25);
+            this.main_panel.Location = new System.Drawing.Point(237, 27);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(694, 573);
-            this.main_panel.TabIndex = 16;
+            this.main_panel.TabIndex = 20;
+            // 
+            // user_id
+            // 
+            this.user_id.AutoSize = true;
+            this.user_id.Location = new System.Drawing.Point(279, 185);
+            this.user_id.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.user_id.Name = "user_id";
+            this.user_id.Size = new System.Drawing.Size(100, 23);
+            this.user_id.TabIndex = 34;
+            this.user_id.Text = "<user_id>";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(136, 185);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 23);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "User ID";
             // 
             // logout
             // 
@@ -154,11 +160,11 @@
             this.logout.FlatAppearance.BorderSize = 0;
             this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.logout.Location = new System.Drawing.Point(537, 518);
+            this.logout.Location = new System.Drawing.Point(538, 514);
             this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(132, 36);
-            this.logout.TabIndex = 30;
+            this.logout.TabIndex = 29;
             this.logout.Text = "LOGOUT";
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.logout_Click);
@@ -205,39 +211,17 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "User-type";
             // 
-            // user_id
-            // 
-            this.user_id.AutoSize = true;
-            this.user_id.Location = new System.Drawing.Point(279, 178);
-            this.user_id.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.user_id.Name = "user_id";
-            this.user_id.Size = new System.Drawing.Size(100, 23);
-            this.user_id.TabIndex = 32;
-            this.user_id.Text = "<user_id>";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(136, 178);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 23);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "User ID";
-            // 
-            // DoctorHome
+            // PharmacistHome
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(958, 628);
+            this.ClientSize = new System.Drawing.Size(956, 628);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.main_panel);
-            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "DoctorHome";
-            this.Text = "Home";
+            this.Name = "PharmacistHome";
+            this.Text = "PharmacistHome";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -252,16 +236,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button view_case_label;
+        private System.Windows.Forms.Button exit_button;
+        private System.Windows.Forms.Button give_medicine_label;
         private System.Windows.Forms.Button dashboard_label;
-        private System.Windows.Forms.Button add_case_label;
         private System.Windows.Forms.Panel main_panel;
+        private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Label usertype;
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button exit_button;
-        private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Label user_id;
         private System.Windows.Forms.Label label4;
     }

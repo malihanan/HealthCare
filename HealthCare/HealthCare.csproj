@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,8 +50,12 @@
     <Compile Include="Global.cs" />
     <Compile Include="Model\Case.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\LabTechnician.cs" />
     <Compile Include="Model\ManageCase.cs" />
+    <Compile Include="Model\ManagePrescription.cs" />
     <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Pharmacist.cs" />
+    <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\UserFactory.cs" />
     <Compile Include="Model\UserStore.cs" />
     <Compile Include="View\AddCase.cs">
@@ -71,11 +76,29 @@
     <Compile Include="View\EditCase.Designer.cs">
       <DependentUpon>EditCase.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GiveMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GiveMedicine.Designer.cs">
+      <DependentUpon>GiveMedicine.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Index.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientHome.Designer.cs">
+      <DependentUpon>PatientHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PharmacistHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PharmacistHome.Designer.cs">
+      <DependentUpon>PharmacistHome.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Register.cs">
       <SubType>Form</SubType>
@@ -87,11 +110,23 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ViewCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewCase.Designer.cs">
+      <DependentUpon>ViewCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewCases.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\ViewCases.Designer.cs">
       <DependentUpon>ViewCases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewHistory.Designer.cs">
+      <DependentUpon>ViewHistory.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\AddCase.resx">
       <DependentUpon>AddCase.cs</DependentUpon>
@@ -102,8 +137,17 @@
     <EmbeddedResource Include="View\EditCase.resx">
       <DependentUpon>EditCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GiveMedicine.resx">
+      <DependentUpon>GiveMedicine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientHome.resx">
+      <DependentUpon>PatientHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PharmacistHome.resx">
+      <DependentUpon>PharmacistHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
@@ -117,8 +161,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\ViewCase.resx">
+      <DependentUpon>ViewCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ViewCases.resx">
       <DependentUpon>ViewCases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewHistory.resx">
+      <DependentUpon>ViewHistory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

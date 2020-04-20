@@ -30,12 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.back_button = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ViewHistoryButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.back_button = new System.Windows.Forms.Button();
+            this.close_button = new System.Windows.Forms.Button();
             this.loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).BeginInit();
@@ -54,7 +56,8 @@
             this.Edit,
             this.Title,
             this.PatientId,
-            this.PatientName});
+            this.PatientName,
+            this.ViewHistoryButton});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(85)))));
             this.dataGridView1.Location = new System.Drawing.Point(25, 30);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -65,18 +68,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(902, 517);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // back_button
-            // 
-            this.back_button.FlatAppearance.BorderSize = 0;
-            this.back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back_button.Location = new System.Drawing.Point(849, 566);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(78, 40);
-            this.back_button.TabIndex = 3;
-            this.back_button.Text = "BACK";
-            this.back_button.UseVisualStyleBackColor = true;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
             // Id
             // 
@@ -92,13 +83,13 @@
             // 
             this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edit.HeaderText = "Edit Case";
+            this.Edit.HeaderText = "Action";
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
-            this.Edit.Text = "Edit";
+            this.Edit.Text = "Open";
             this.Edit.UseColumnTextForButtonValue = true;
-            this.Edit.Width = 108;
+            this.Edit.Width = 79;
             // 
             // Title
             // 
@@ -130,6 +121,45 @@
             this.PatientName.ReadOnly = true;
             this.PatientName.Width = 168;
             // 
+            // ViewHistoryButton
+            // 
+            this.ViewHistoryButton.HeaderText = "View History";
+            this.ViewHistoryButton.MinimumWidth = 6;
+            this.ViewHistoryButton.Name = "ViewHistoryButton";
+            this.ViewHistoryButton.ReadOnly = true;
+            this.ViewHistoryButton.Text = "View History";
+            this.ViewHistoryButton.ToolTipText = "View History";
+            this.ViewHistoryButton.UseColumnTextForButtonValue = true;
+            this.ViewHistoryButton.Width = 133;
+            // 
+            // back_button
+            // 
+            this.back_button.FlatAppearance.BorderSize = 0;
+            this.back_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back_button.Location = new System.Drawing.Point(849, 566);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(78, 40);
+            this.back_button.TabIndex = 3;
+            this.back_button.Text = "BACK";
+            this.back_button.UseVisualStyleBackColor = true;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
+            // 
+            // close_button
+            // 
+            this.close_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(85)))));
+            this.close_button.CausesValidation = false;
+            this.close_button.FlatAppearance.BorderSize = 0;
+            this.close_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.close_button.Location = new System.Drawing.Point(25, 568);
+            this.close_button.Margin = new System.Windows.Forms.Padding(4);
+            this.close_button.Name = "close_button";
+            this.close_button.Size = new System.Drawing.Size(218, 36);
+            this.close_button.TabIndex = 28;
+            this.close_button.Text = "VIEW CLOSED CASES";
+            this.close_button.UseVisualStyleBackColor = false;
+            this.close_button.Click += new System.EventHandler(this.close_button_Click);
+            // 
             // loginBindingSource
             // 
             this.loginBindingSource.DataSource = typeof(HealthCare.View.Index);
@@ -139,6 +169,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(953, 629);
+            this.Controls.Add(this.close_button);
             this.Controls.Add(this.back_button);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,5 +194,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientId;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
+        private System.Windows.Forms.DataGridViewButtonColumn ViewHistoryButton;
+        private System.Windows.Forms.Button close_button;
     }
 }

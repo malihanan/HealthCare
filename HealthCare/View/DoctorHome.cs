@@ -17,25 +17,39 @@ namespace HealthCare.View
             InitializeComponent();
             username.Text = Global.Username;
             usertype.Text = Global.Type.ToString();
+            user_id.Text = Global.Id.ToString();
         }
 
-        private void detailsForm_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void exit_button_Click(object sender, EventArgs e)
         {
-            //adddetails form
+            this.Hide();
         }
 
-        private void addCase_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void add_case_label_Click(object sender, EventArgs e)
         {
             AddCase addCase = new AddCase(this);
             addCase.Show();
             this.Hide();
         }
 
-        private void viewCases_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void view_case_label_Click(object sender, EventArgs e)
         {
             ViewCases viewCases = new ViewCases(this);
             viewCases.Show();
             this.Hide();
+        }
+
+        private void add_button_Click(object sender, EventArgs e)
+        {
+            //adddetails form
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Global.clear();
+            Index index = new Index();
+            this.Hide();
+            index.Show();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace HealthCare.Model
         public int PatientId { get; set; }
         public DateTime OpenDate { get; set; }
         public DateTime ModifyDate { get; set; }
-        public DateTime ClosingDate { get; set; }
+        public DateTime? ClosingDate { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Disease { get; set; }

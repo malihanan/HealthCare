@@ -231,6 +231,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(85)))));
+            this.panel1.Controls.Add(this.exit_button);
             this.panel1.Controls.Add(this.register_label);
             this.panel1.Controls.Add(this.login_label);
             this.panel1.Controls.Add(this.panel2);
@@ -245,10 +246,10 @@
             // 
             this.exit_button.FlatAppearance.BorderSize = 0;
             this.exit_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit_button.Location = new System.Drawing.Point(888, 577);
+            this.exit_button.Location = new System.Drawing.Point(0, 566);
             this.exit_button.Name = "exit_button";
-            this.exit_button.Size = new System.Drawing.Size(57, 40);
-            this.exit_button.TabIndex = 5;
+            this.exit_button.Size = new System.Drawing.Size(212, 63);
+            this.exit_button.TabIndex = 28;
             this.exit_button.Text = "EXIT";
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
@@ -261,7 +262,6 @@
             this.ClientSize = new System.Drawing.Size(958, 631);
             this.Controls.Add(this.main_panel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.exit_button);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(47)))), ((int)(((byte)(52)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -289,11 +289,11 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Label error;
         private System.Windows.Forms.RadioButton labtechnician;
         private System.Windows.Forms.RadioButton pharmacist;
         private System.Windows.Forms.RadioButton doctor;
         private System.Windows.Forms.RadioButton patient;
+        private System.Windows.Forms.Button exit_button;
     }
 }
